@@ -10,14 +10,28 @@
     <script type="text/jsx">
      var SubMsg = React.createClass({
 
+
+// It is property so it has no function 
+      propTypes : {
+        message: React.PropTypes.string.isRequired
+      },
+      getDefaultProps: function()
+        {
+          return{
+              message: "It is good to see you "
+          }
+
+        },
       render: function(){
 
         return(
-          <h4> How  you doing? </h4>
+          <h4> {this.props.message} </h4>
             
           );
       }
     });
+
+     // the main messagebox component
     var MessageBox = React.createClass({
 
 
@@ -25,7 +39,15 @@
       {
         return{
           isVisible: true,
-          titleMessage: 'Hello , World Nishi'
+          titleMessage: 'Hello , World Nishi',
+          messages : [
+                'It is been a while',
+                'You came',
+                'Now it is high time ',
+                'I want to say you ',
+                'Some thing you never heard'
+
+          ]
         }
 
       },
@@ -35,16 +57,23 @@
           display: this.state.isVisible? 'block' : 'none',
           color:this.state.isVisible? 'red' : 'blue'
         };
+        var subMessage = null;
+        // mapping the string array
+        var messages = this.state.messages.map(function(msg){
+          return <SubMsg message={msg} /> ;
+
+        });
+
 
         return(
             <div className="container jumbotron" style={inlineStyles}>
               <h1>{this.state.titleMessage}</h1>
-              <SubMsg></SubMsg>
+              {messages}
             </div>
           );
       }
     });
-
+// Here it renders
     React.render(
       <MessageBox></MessageBox>,
       document.getElementById('app')
