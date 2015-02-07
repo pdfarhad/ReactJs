@@ -31,10 +31,17 @@
       }
     });
 
-     // the main messagebox component
+     // the main messagebox component and it is the owner of all other Component
     var MessageBox = React.createClass({
-
-
+// Event Listener Added
+      handleAdd: function(e){
+          var newMessage = this.refs.newMessage.getDOMNode().value;
+          var newMessages = this.state.messages.concat([newMessage]);
+          this.setState({
+            messages: newMessages
+          });
+      },
+// InitialState of the Owner Component
       getInitialState : function()
       {
         return{
@@ -53,24 +60,26 @@
       },
 
       render: function(){
-        var inlineStyles = {
-          display: this.state.isVisible? 'block' : 'none',
-          color:this.state.isVisible? 'red' : 'blue'
-        };
-        var subMessage = null;
-        // mapping the string array
-        var messages = this.state.messages.map(function(msg){
-          return <SubMsg message={msg} /> ;
+              var inlineStyles = {
+                display: this.state.isVisible? 'block' : 'none',
+                color:this.state.isVisible? 'red' : 'blue'
+              };
+              var subMessage = null;
+              // mapping the string array
+              var messages = this.state.messages.map(function(msg){
+                return <SubMsg message={msg} /> ;
 
-        });
+              });
 
 
-        return(
-            <div className="container jumbotron" style={inlineStyles}>
-              <h1>{this.state.titleMessage}</h1>
-              {messages}
-            </div>
-          );
+              return(
+                  <div className="container jumbotron" style={inlineStyles}>
+                    <h1>{this.state.titleMessage}</h1>
+                    <input ref="newMessage" type="text" />
+                    <button className="btn btn-primary" onClick={this.handleAdd}> Add</button>
+                    {messages}
+                  </div>
+                );
       }
     });
 // Here it renders
