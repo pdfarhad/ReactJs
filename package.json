@@ -1,0 +1,28 @@
+{
+  "name": "Codes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "HelloWorld.js",
+  "dependencies": {
+    "react": "^0.12.2"
+    
+  },
+  "devDependencies": {
+    "react-tools": "^0.12.2",
+    "reactify": "^1.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "browserify -t reactify src/app.js > build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pdfarhad/ReactJs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pdfarhad/ReactJs/issues"
+  },
+  "homepage": "https://github.com/pdfarhad/ReactJs"
+}

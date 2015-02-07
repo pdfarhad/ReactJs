@@ -1,0 +1,58 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'owner', 'ls', 'Codes' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose request where is /Codes
+5 verbose request registry https://registry.npmjs.org/
+6 verbose request id e053607139b59b29
+7 verbose url raw /Codes
+8 verbose url resolving [ 'https://registry.npmjs.org/', './Codes' ]
+9 verbose url resolved https://registry.npmjs.org/Codes
+10 verbose request where is https://registry.npmjs.org/Codes
+11 info trying registry request attempt 1 at 01:01:18
+12 http GET https://registry.npmjs.org/Codes
+13 http 404 https://registry.npmjs.org/Codes
+14 verbose headers { date: 'Sat, 07 Feb 2015 18:53:13 GMT',
+14 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+14 verbose headers   'content-type': 'application/json',
+14 verbose headers   'cache-control': 'max-age=0',
+14 verbose headers   'content-length': '52',
+14 verbose headers   'accept-ranges': 'bytes',
+14 verbose headers   via: '1.1 varnish',
+14 verbose headers   age: '0',
+14 verbose headers   'x-served-by': 'cache-sn86-SIN',
+14 verbose headers   'x-cache': 'MISS',
+14 verbose headers   'x-cache-hits': '0',
+14 verbose headers   'x-timer': 'S1423335192.999221,VS0,VE203',
+14 verbose headers   'keep-alive': 'timeout=10, max=50',
+14 verbose headers   connection: 'Keep-Alive' }
+15 silly registry.get cb [ 404,
+15 silly registry.get   { date: 'Sat, 07 Feb 2015 18:53:13 GMT',
+15 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+15 silly registry.get     'content-type': 'application/json',
+15 silly registry.get     'cache-control': 'max-age=0',
+15 silly registry.get     'content-length': '52',
+15 silly registry.get     'accept-ranges': 'bytes',
+15 silly registry.get     via: '1.1 varnish',
+15 silly registry.get     age: '0',
+15 silly registry.get     'x-served-by': 'cache-sn86-SIN',
+15 silly registry.get     'x-cache': 'MISS',
+15 silly registry.get     'x-cache-hits': '0',
+15 silly registry.get     'x-timer': 'S1423335192.999221,VS0,VE203',
+15 silly registry.get     'keep-alive': 'timeout=10, max=50',
+15 silly registry.get     connection: 'Keep-Alive' } ]
+16 error owner ls Couldn't get owner data Codes
+17 error 404 404 Not Found: Codes
+17 error 404
+17 error 404 'Codes' is not in the npm registry.
+17 error 404 You should bug the author to publish it
+17 error 404
+17 error 404 Note that you can also install from a
+17 error 404 tarball, folder, or http url, or git url.
+18 error System Darwin 14.0.0
+19 error command "node" "/usr/local/bin/npm" "owner" "ls" "Codes"
+20 error cwd /Users/farhad/reactJs/react-0.12.2/Codes
+21 error node -v v0.10.33
+22 error npm -v 1.4.28
+23 error code E404
+24 verbose exit [ 1, true ]
