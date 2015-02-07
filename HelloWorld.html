@@ -3,17 +3,27 @@
   <head>
     <script src="build/react.js"></script>
     <script src="build/JSXTransformer.js"></script>
+    <!-- Bootstrap added -->
+      <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.js"></script>  
   </head>
   <body>
     <div id="example"></div>
     <div id="app"></div>
+
+
     <script type="text/jsx">
+    // CHild COmponent
      var SubMsg = React.createClass({
 
 
-// It is property so it has no function 
+    // It is property so it has no function 
       propTypes : {
         message: React.PropTypes.string.isRequired
+      },
+
+      handleDelete: function(e){
+          this.props.onDelete(this.props.message)
       },
       getDefaultProps: function()
         {
@@ -24,16 +34,28 @@
         },
       render: function(){
 
-        return(
-          <h4> {this.props.message} </h4>
-            
+        return(  // Cant multiple things, that is why we have to wrap it with a div
+          <div>
+             {this.props.message}
+            <button className="btn btn-danger" onClick={this.handleDelete} >X</button>
+          </div>
           );
       }
     });
 
-     // the main messagebox component and it is the owner of all other Component
+     // the main messagebox component and it is the owner of all other Component, It is also called top level component
     var MessageBox = React.createClass({
-// Event Listener Added
+
+
+      deleteMessage: function(message){
+          console.log("Deleting");
+          var newMessages = _.without(this.state.messages,message); // lodash added
+            console.log(newMessages);
+          this.setState({
+            messages: newMessages
+          });
+      },
+    // Event Listener for Adding message
       handleAdd: function(e){
           var newMessage = this.refs.newMessage.getDOMNode().value;
           var newMessages = this.state.messages.concat([newMessage]);
@@ -41,7 +63,7 @@
             messages: newMessages
           });
       },
-// InitialState of the Owner Component
+    // InitialState of the Owner Component
       getInitialState : function()
       {
         return{
@@ -67,9 +89,9 @@
               var subMessage = null;
               // mapping the string array
               var messages = this.state.messages.map(function(msg){
-                return <SubMsg message={msg} /> ;
+                return <SubMsg message={msg} onDelete = {this.deleteMessage}/> ;
 
-              });
+              }.bind(this)); // we are binding the "this" component so that we can get the component else it will show undefined in the deleteMessage 
 
 
               return(
