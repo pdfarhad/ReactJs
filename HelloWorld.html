@@ -8,14 +8,23 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/3.1.0/lodash.js"></script>  
   </head>
   <body>
-    <div id="example"></div>
     <div id="app"></div>
 
 
     <script type="text/jsx">
     // CHild COmponent
      var SubMsg = React.createClass({
+          /*
+          
+            Componenet Life Cycle 
 
+            1. Mounting phase  componentWillMount ,componentDidMount
+            2. Updating phase  componentWillReceiveProps(nextProps), shouldComponentUpdate(nextProps, nextState)
+            3. Unmounting phase  componentWillUnmount
+
+            
+
+          */
 
     // It is property so it has no function 
       propTypes : {
